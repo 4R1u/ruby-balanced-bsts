@@ -2,7 +2,7 @@
 
 # represents a node/branch in a tree
 class Node
-  attr_accessor :data
+  attr_accessor :data, :left, :right
 
   include Comparable
 
