@@ -9,7 +9,8 @@ class Tree
   end
 
   def build_tree(arr)
-    return Node.new arr[0] if arr.length <= 1
+    return nil if arr.empty?
+    return Node.new arr[0] if arr.length == 1
 
     mid = arr.length / 2
     root = Node.new arr[mid]
