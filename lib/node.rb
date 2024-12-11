@@ -15,4 +15,8 @@ class Node
   def <=>(other)
     data <=> other.data
   end
+
+  def leaf?
+    left.nil? && right.nil?
+  end
 end
