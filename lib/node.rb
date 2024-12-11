@@ -19,4 +19,11 @@ class Node
   def leaf?
     left.nil? && right.nil?
   end
+
+  def sole_child
+    return left if @right.nil? && !@left.nil?
+    return right if @left.nil? && !@right.nil?
+
+    nil
+  end
 end
