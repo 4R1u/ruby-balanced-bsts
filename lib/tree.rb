@@ -105,6 +105,18 @@ class Tree
     [height(node.left), height(node.right)].max + 1
   end
 
+  def depth(node)
+    return nil unless node.is_a?(Node)
+
+    root = @root
+    depth = 0
+    until root == node
+      root = root.data > node.data ? root.left : root.right
+      depth += 1
+    end
+    depth
+  end
+
   private
 
   def successor_in_right_subtree(node)
