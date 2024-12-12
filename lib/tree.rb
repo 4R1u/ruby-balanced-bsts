@@ -99,6 +99,12 @@ class Tree
     yield root.data
   end
 
+  def height(node)
+    return 0 if node.nil? || node.leaf?
+
+    [height(node.left), height(node.right)].max + 1
+  end
+
   private
 
   def successor_in_right_subtree(node)
