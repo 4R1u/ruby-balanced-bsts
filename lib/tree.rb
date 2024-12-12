@@ -83,6 +83,14 @@ class Tree
     inorder(root.right, &block)
   end
 
+  def preorder(root = @root, &block)
+    return if root.nil?
+
+    yield root.data
+    preorder(root.left, &block)
+    preorder(root.right, &block)
+  end
+
   private
 
   def successor_in_right_subtree(node)
