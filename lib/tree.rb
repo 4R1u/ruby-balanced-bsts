@@ -39,4 +39,12 @@ class Tree
       insert(value, root.right)
     end
   end
+
+  private
+
+  def successor_in_right_subtree(node)
+    node = node.right
+    node = node.left while !node.nil? && !node.left.nil?
+    node
+  end
 end
