@@ -121,6 +121,14 @@ class Tree
     (-1..1).cover?(height(@root.left) - height(@root.right))
   end
 
+  def rebalance
+    return @root if balanced?
+
+    array = []
+    inorder { |i| array << i }
+    @root = build_tree(array.uniq.sort)
+  end
+
   private
 
   def successor_in_right_subtree(node)
