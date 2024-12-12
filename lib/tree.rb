@@ -40,6 +40,24 @@ class Tree
     end
   end
 
+  def delete(value, root = @root)
+    return if root.nil?
+
+    if root.data > value
+      root.left = delete(value, root.left)
+    elsif root.data < value
+      root.right = delete(value, root.right)
+    else
+      return root.right if root.left.nil?
+      return root.left if root.right.nil?
+
+      successor = successor_in_right_subtree(root)
+      root.data = successor.data
+      root.right = delete(successor.data, root.right)
+    end
+    root
+  end
+
   private
 
   def successor_in_right_subtree(node)
