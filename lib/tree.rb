@@ -117,6 +117,10 @@ class Tree
     depth
   end
 
+  def balanced?
+    (-1..1).cover?(height(@root.left) - height(@root.right))
+  end
+
   private
 
   def successor_in_right_subtree(node)
