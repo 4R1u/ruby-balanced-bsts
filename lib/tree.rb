@@ -58,6 +58,12 @@ class Tree
     root
   end
 
+  def find(value)
+    node = @root
+    node = node.data > value ? node.left : node.right until node.nil? || node.data == value
+    node
+  end
+
   private
 
   def successor_in_right_subtree(node)
