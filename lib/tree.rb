@@ -64,6 +64,17 @@ class Tree
     node
   end
 
+  def level_order
+    queue = []
+    queue.push(@root)
+    until queue.empty?
+      yield(queue[0].data)
+      queue << queue[0].left if queue[0].left
+      queue << queue[0].right if queue[0].right
+      queue.delete_at 0
+    end
+  end
+
   private
 
   def successor_in_right_subtree(node)
